@@ -11,6 +11,7 @@ It is best to use postgres tool to build database:
 $ sudo su postgres
 $ psql
 $ create database database_name;
+(by default owner is 'postgres')
 $ \l
 ```
 
