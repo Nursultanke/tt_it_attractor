@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <div class="content-wrapper">
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row padding">
+                    <a href="{% url 'main' %}" class="btn btn-light mb-4">Назад к статьям</a>
+                    <div class="container">
+                        <div class="row col-md-12">
+                            <div class="col-md-6">
+                                <img src="{{ article.image.url }}" alt="" class="img-thumbnail">
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item text-secondary">
+                                        <i class="fas fa-info"></i> Заголовок:
+                                        <span class="float-right">{{ article.title }}</span>
+                                    </li>
+                                    <li class="list-group-item text-secondary">
+                                        <i class="fas fa-boxes"></i> Категория:
+                                        <span class="float-right">{{ article.category_id }}</span>
+                                    </li>
+                                    <li class="list-group-item text-secondary">
+                                        <i class="fas fa-user"></i> Владелец:
+                                        <span class="float-right">{{ article.user }}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-12 pt-2">
+                            <div class="card">
+                                <h3 class="card-header">Описание:</h3>
+                                <div class="card-body"><p>{{ article.description }}</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+{% endblock %}

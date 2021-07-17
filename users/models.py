@@ -4,10 +4,7 @@ from django.db import models
 
 
 class User(AbstractUser):
-    username = models.CharField('username', max_length=150, unique=True, error_messages={
-            'unique': "Пользователь с таким именем уже существует.",
-        },)
-
+    pass
     def __str__(self):
         return self.username
 

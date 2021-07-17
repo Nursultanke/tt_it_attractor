@@ -1,0 +1,64 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="content-wrapper">
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Список пользователя</h1>
+          </div>
+        </div>
+          <a href="{% url 'user_create' %}">
+              <button type="button" class="btn btn-primary">Добавить</button>
+          </a>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Имя</th>
+                    <th></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  {% if user_list %}
+                  {% for item in user_list %}
+                  <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.username }}</td>
+                    <td>
+                        <ul class="nav">
+                            <li>
+                                <a href="{% url 'user_update' item.id %}">
+                                <button class="btn fa fa-edit m-0"></button>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'user_delete' item.id %}">
+                                <button class="btn fa fa-trash-alt m-0"></button>
+                                </a>
+                            </li>
+                        </ul>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                  {% else %}
+                  {% endif %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+{% endblock %}

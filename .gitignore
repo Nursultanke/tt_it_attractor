@@ -32,6 +32,8 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+Pipfile
+Pipfile.lock
 env/
 build/
 develop-eggs/

@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% block content %}
+    <div class="content-wrapper mt-5">
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card card-primary">
+                        {% if 'article_update' in request.path %}
+                            <div class="card-header">
+                                <h3 class="card-title">Редактирование статьи</h3>
+                            </div>
+                        {% else %}
+                            <div class="card-header">
+                                <h3 class="card-title">Добавление статьи</h3>
+                            </div>
+                        {% endif %}
+
+                            <div class="m-2">
+                                <form method="POST" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    {{ form.media.js }}
+                                    {% bootstrap_form form %}
+                                    {% if 'article_update' in request.path %}
+                                        <button type="submit" class="btn btn-primary">Редактировать</button>
+                                    {% else %}
+                                        <button type="submit" class="btn btn-primary">Добавить</button>
+                                    {% endif %}
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}
